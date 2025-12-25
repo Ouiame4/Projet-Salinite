@@ -61,14 +61,41 @@ const char* chat_id     = "VOTRE_CHAT_ID";
 // --- 3. Géographie ---
 String REGION_CIBLE = "SAIDIA"; // Choix : SAIDIA, AGADIR, DAKHLA...
 ```
+###  Comment Obtenir Vos Identifiants (Tokens)
+
+Pour que le système fonctionne, vous devez créer vos propres clés d'accès. Voici la procédure :
+
+### 1. Token ThingsBoard (MQTT)
+1.  Créez un compte gratuit sur [ThingsBoard Demo](https://demo.thingsboard.io/).
+2.  Allez dans l'onglet **"Devices"** (Appareils).
+3.  Cliquez sur le bouton **"+"** pour ajouter un nouvel appareil.
+4.  Nommez-le (ex: `ESP32_Salinite`).
+5.  Une fois créé, cliquez sur l'appareil dans la liste pour ouvrir ses détails.
+6.  Cliquez sur le bouton **"Copy Access Token"**.
+7.  Collez ce token dans la variable `token` du code.
+
+### 2. Token Bot Telegram
+1.  Ouvrez l'application Telegram et cherchez l'utilisateur **@BotFather**.
+2.  Envoyez la commande `/newbot`.
+3.  Donnez un nom à votre bot (ex: `Mon_Projet_IoT_Bot`).
+4.  Donnez un nom d'utilisateur (doit finir par `bot`, ex: `SaliniteMarocBot`).
+5.  BotFather vous donnera un **Token d'accès** (ex: `123456:ABC-DEF...`).
+6.  Collez ce token dans la variable `bot_token` du code.
+
+### 3. Chat ID Telegram
+1.  Lancez une conversation avec votre nouveau bot (cliquez sur "Start").
+2.  Cherchez un autre bot nommé **@userinfobot** ou **@IDBot**.
+3.  Envoyez n'importe quel message à ce bot.
+4.  Il vous répondra avec votre **"Id"** (un nombre, ex: `123456789`).
+5.  Collez ce nombre dans la variable `chat_id` du code.
 
 ### 3. Branchement
 
-Sonde TDS (Signal) -> Broche 34 (Analog Input) de l'ESP32.
-
-VCC -> 3.3V
-
-GND -> GND
+| Composant | ESP32 Pin |
+| :--- | :--- |
+| **Sonde TDS (Signal)** | Broche **34** (Analog Input) |
+| **VCC** | 3.3V |
+| **GND** | GND |
 
 Format des Données (JSON)
 
